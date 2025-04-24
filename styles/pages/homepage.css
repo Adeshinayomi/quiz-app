@@ -1,0 +1,107 @@
+header{
+  width:100%;
+  margin:auto;
+  padding: 20px 10px;
+  display: grid;
+  grid-template-columns: 1fr 3fr .8fr;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.426);
+  background-color: green;
+}
+header label{
+ color: white;
+ font-size:20px ;
+ font-weight: bold;
+}
+header input{
+  border: none;
+  background-color: transparent;
+  padding: 10px;
+  font-weight: 100;
+}
+header input::placeholder{
+  color: rgba(255, 255, 255, 0.582);
+  font-size: 18px;
+}
+main{
+  width: 100%;
+  margin: auto; 
+  display: grid;
+  grid-template-columns: .2fr 1fr;
+  column-gap: .5rem;
+}
+.side-bar{
+  height: 100vh;
+  padding:10px;
+  display: flex;
+  flex-direction:column;
+  gap: 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.426);
+  background-color: green;
+}
+.side-bar li{
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0;
+}
+/* .side-bar li.active{
+  padding:10px;
+  border-radius: 5px;
+  background-color: rgb(5, 40, 5) ;
+} */
+.side-bar li:hover{
+  padding:10px;
+  border-radius: 5px;
+  background-color: rgb(5, 40, 5) ;
+}
+.side-bar .categories-cont{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.categories-cont h4{
+  font-weight: bold;
+}
+.categories-cont a{
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.hero-section{
+  position: relative;
+  width: 100%;
+  height: 50%;
+  background-image: url('/images/school-supplies-green-chalkboard-back-school-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hero-section p{
+  position:absolute;
+  top: 40%;
+  display:grid;
+  background-color: transparent;
+  left: 70%;
+}
+.hero-section p  span{
+  font-size: 28px;
+  color: black;
+  font-weight: 600;
+}
+.subject-display{
+  width: 100%;
+  margin:10px auto;
+  display:grid;
+}
+.subject-cont{
+  padding: 10px;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+.subject{
+  background-color: rgb(5, 40, 5);
+  padding: 20px;
+  color:  white;
+  border-radius: 10px;
+}
