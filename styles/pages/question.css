@@ -102,3 +102,15 @@ gap: 1rem;
   background-color: green;
   color: white;
 }
+@media (min-width:300px) and (max-width:500px) {
+  header h1{
+    font-size: 24px;
+  }
+  .number-cont{
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+  }
+  .option{
+    width: 80%;
+  }
+}

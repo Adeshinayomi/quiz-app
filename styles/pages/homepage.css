@@ -105,3 +105,39 @@ main{
   color:  white;
   border-radius: 10px;
 }
+
+@media (min-width:300px) and (max-width:500px) {
+  header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .side-bar{
+    display: none;
+  }
+  main{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .hero-section{
+    width: 98%;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    height: 40vh;
+  } 
+  .hero-section p{
+    width:70%;
+    justify-content:end;
+    left: 30%;
+  }
+  .hero-section p span{
+    font-size: 22px;
+  }
+  .subject-display h1{
+    margin: 10px;
+  }
+  .subject-cont{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
