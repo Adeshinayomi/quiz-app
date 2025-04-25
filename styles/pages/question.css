@@ -65,6 +65,10 @@ gap: 1rem;
   background-color: white;
   color: black;
 }
+.result-option:hover{
+  background-color:rgb(5, 40, 5);
+  color: white;
+}
 .question-btn{
   display:grid;
   grid-template-columns: repeat(2,1fr);
@@ -83,9 +87,18 @@ gap: 1rem;
   background-color: white;
   color: black;
 }
+
 .question-btn .next-btn{
   justify-self: end;
 }
 .question-btn .submit-btn{
   margin: 10px 0;
+}
+#wrong-answer{
+  background-color:red;
+  color: white;
+}
+#correct-answer{
+  background-color: green;
+  color: white;
 }
