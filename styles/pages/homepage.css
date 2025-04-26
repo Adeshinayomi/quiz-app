@@ -3,7 +3,7 @@ header{
   margin:auto;
   padding: 20px 10px;
   display: grid;
-  grid-template-columns: 1fr 3fr .8fr;
+  grid-template-columns: .3fr 1fr 1fr;
   border-bottom: 1px solid rgba(255, 255, 255, 0.426);
   background-color: green;
 }
@@ -11,17 +11,45 @@ header label{
  color: white;
  font-size:20px ;
  font-weight: bold;
+ display: flex;
+ align-items: center;
 }
 header input{
   border: none;
   background-color: transparent;
   padding: 10px;
   font-weight: 100;
+  outline: none;
 }
 header input::placeholder{
   color: rgba(255, 255, 255, 0.582);
-  font-size: 18px;
+  font-size: 16px;
 }
+header img{
+  height: 4vh;
+  cursor: pointer;
+}
+.bar-icon{
+  display: none;
+}
+.user{
+  display:flex;
+  justify-content:flex-end;
+  align-items: center;
+  gap: .5rem;
+}
+.search-bar{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+}
+.search-bar img{
+  align-self:center;
+  height: 3.5vh;
+}
+
 main{
   width: 100%;
   margin: auto; 
@@ -104,12 +132,47 @@ main{
   padding: 20px;
   color:  white;
   border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.subject img{
+  width: 30%;
+  height: 5vh;
+  justify-self: end;
+  align-self: start;
+  color: white;
+}
+.subject h4{
+  align-self:center;
 }
 
 @media (min-width:300px) and (max-width:500px) {
   header{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 3fr .2fr;
+    justify-content: center;
+    align-items: center;
+  }
+  header label{
+    display: none;
+  }
+  header img{
+    height: 4vh;
+  }
+  .bar-icon{
+    display:block;
+  }
+  .user,.search-bar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+  }
+  .search-bar img{
+    align-self:center;
+    height: 3.5vh;
+  }
+  .user p{
+    display: none;
   }
   .side-bar{
     display: none;
@@ -123,7 +186,7 @@ main{
     margin: auto;
     display: grid;
     justify-content: center;
-    height: 40vh;
+    height:40vh;
   } 
   .hero-section p{
     width:70%;
