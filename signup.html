@@ -12,15 +12,17 @@
     <h1>Sign Up</h1>
     <form action="">
       <input type="text" placeholder="Username">
-      <input type="email" placeholder="Email Address">
-      <input type="password" placeholder="Password">
+      <input type="email" placeholder="Email Address" class="user-email">
+      <input type="password" placeholder="Password" class="user-password">
       <input type="password" placeholder="Confirm Password">
     </form>
 
     <div class="signup-btn-cont">
       <p>Already have an account?<a href="login.html">login</a></p>
-      <button class="sign-up-btn quiz-btn"><a href="Homepage.html">Sign Up</a></button>
+      <button class="sign-up-btn quiz-btn js-login-btn"><a>Sign Up</a></button>
     </div>
   </main>
+
+  <script type="module" src="src/renderUserData.js"></script>
 </body>
 </html>
