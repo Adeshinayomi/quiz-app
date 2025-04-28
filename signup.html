@@ -10,16 +10,21 @@
 <body>
   <main class="quiz-main-cont signup-cont">
     <h1>Sign Up</h1>
-    <form class="">
-      <input type="text" placeholder="Username" required>
-      <label class="error-message js-error-message"></label>
-      <input type="email" placeholder="Email Address" class="user-email" required>
-      <label class="error-message js-error-message"></label>
-      <input type="password" placeholder="Password" class="user-password" required>
-      <label class="error-message js-error-message"></label>
-      <input type="password" placeholder="Confirm Password" class="user-confirm-paasword" required>
-      <label for="password" class="error-message js-password-error"></label>
-      <div class="sign-up-btn quiz-btn js-login-btn"><a>Sign Up</a></div>
+    <form class="sign-up">
+      <input class="input user-name" type="text" placeholder="Username" data-name="name" >
+      <label class="error-message name-error js-error-message"></label>
+
+      <input type="email" placeholder="Email Address" class="user-email input" data-name="email" >
+      <label class="error-message email-error js-error-message"></label>
+
+      <input type="password" placeholder="Password" class="user-password input" data-name="password" >
+      <label class="error-message password-error js-error-message"></label>
+
+      <input type="password" placeholder="Confirm Password" class="user-confirm-paasword input" data-name="confirm-password" >
+
+      <label for="password" class="error-message confirm-password-error js-error-message js-password-error"></label>
+
+      <button type="submit" class="sign-up-btn quiz-btn js-login-btn"><a>Sign Up</a></button>
     </form>
 
     <div class="signup-btn-cont">

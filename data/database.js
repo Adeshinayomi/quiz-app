@@ -3,6 +3,7 @@ export let user=JSON.parse(localStorage.getItem('userdata'));
 if(!user){
   user=[]
 }
+console.log(user)
 
 class database{
   email;
@@ -14,10 +15,10 @@ class database{
   }
 }
 
-export function addUserData(email,paasword){
+export function addUserData(email,password){
   user.push({
     email:email,
-    password:paasword
+    password:password
   })
   saveUserData()
   console.log(user)

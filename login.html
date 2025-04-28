@@ -10,14 +10,17 @@
 <body>
   <main class="quiz-main-cont">
     <h1>Login</h1>
-    <form action="">
+    <form class="login">
       <input type="email" placeholder="Email Address" class="user-email">
+      <label class="error-message email-error"></label>
       <input type="password" placeholder="Password" class="user-password">
+      <label class="error-message password-error"></label>
+      <button type="submit" class="login-btn quiz-btn js-login-btn"><a>Login</a></button>
     </form>
 
     <div class="signup-btn-cont">
-      <p>Don't have any account?<a href="signup.html">Sign Up</a></p>
-      <button class="login-btn quiz-btn js-login-btn"><a>Login</a></button>
+      <p>Don't have any account?</p>
+      <button class="login-btn quiz-btn js-login-btn"><a href="signup.html">Sign Up</a></button>
     </div>
   </main>
   <script type="module" src="src/login.js"></script>
