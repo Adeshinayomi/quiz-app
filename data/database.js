@@ -3,6 +3,7 @@ export let user=JSON.parse(localStorage.getItem('userdata'));
 if(!user){
   user=[]
 }
+
 class database{
   email;
   password;
@@ -12,15 +13,6 @@ class database{
     this.password=user.password
   }
 }
-  let userData=''
-function getUserData(){
-
-  user.forEach((user)=>{
-    userData= new database(user)
-  })
-  return userData
-}
-console.log(getUserData())
 
 export function addUserData(email,paasword){
   user.push({
@@ -29,6 +21,7 @@ export function addUserData(email,paasword){
   })
   saveUserData()
   console.log(user)
+
 }
 function saveUserData(){
   localStorage.setItem('userdata',JSON.stringify(user))

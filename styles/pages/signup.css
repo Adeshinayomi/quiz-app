@@ -8,10 +8,15 @@
 }
 .sign-up-btn{
   padding:20px 100px;
+  display: flex;
+  justify-content: center;
 }
 .sign-up-btn a{
+  font-size:19px ;
   color: white;
+  font-weight: 500;
   background-color: transparent;
+  cursor: pointer;
 }
 form{
   display: grid;
@@ -44,9 +49,22 @@ input::placeholder{
   color: white;
   border-radius: 15px;
   border: none;
+  display:flex ;
+  justify-content: center
 }
 .login-btn a{
+  width: 100%;
   color: white;
   background-color: transparent;
   font-size:20px ;
+
+  
+}
+.error-message{
+  width: 80%;
+  padding: 0 10px;
+  color: rgb(245, 52, 52);
+  font-size: 18px;
+  display: flex;
+  justify-content: start;
 }
