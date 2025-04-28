@@ -1,4 +1,4 @@
-import { addUserData } from "../data/database.js";
+import { addUserData,user } from "../data/database.js";
 
 const name=document.querySelector('.user-name')
 const email=document.querySelector('.user-email')
@@ -8,7 +8,8 @@ const confirmPassword=document.querySelector('.user-confirm-paasword')
 export let newUser=''
 document.querySelector('.sign-up').addEventListener('submit',(e)=>{
   e.preventDefault();
-
+  document.querySelector('.js-user-error').innerHTML=''
+  
   const inputs=document.querySelectorAll('.input')
 
   inputs.forEach((input)=>{
@@ -37,14 +38,21 @@ document.querySelector('.sign-up').addEventListener('submit',(e)=>{
   }
   
   if(isValid){
-    setTimeout(()=>{
-      newUser=name.value
-      document.querySelector('.js-login-btn').innerHTML='<a>Sign up sucessful</a>'
-      addUserData(email.value,password.value)
-    },1000)
-    setTimeout(()=>{
-      window.location='Homepage.html'
-    },2500)
+    user.forEach((user)=>{
+      if(user.email === email.value){
+        document.querySelector('.js-user-error').innerHTML=`Email Address already in use`
+      }else{
+        document.querySelector('.js-user-error').innerHTML=''
+        setTimeout(()=>{
+          newUser=name.value
+          document.querySelector('.js-login-btn').innerHTML='<a>Sign up sucessful</a>'
+          addUserData(email.value,password.value)
+        },1000)
+        setTimeout(()=>{
+          window.location='Homepage.html'
+        },2500)
+      }
+    })
   }
 })
 
