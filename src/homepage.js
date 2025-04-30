@@ -50,3 +50,17 @@ document.querySelectorAll('.topics').forEach((topic)=>{
       loadCategories(name)
   })
 })
+
+const searchBar=document.querySelector('.js-search-bar')
+function loadSearchItem(){
+  subjects.forEach((subject)=>{
+    if(subject.keywords.includes(searchBar.value)){
+      const name=subject.subject
+      loadCategories(name)
+    }
+  })
+}
+document.querySelector('.js-search-icon').addEventListener('click',()=>{
+  loadSearchItem()
+  searchBar.value=''
+})

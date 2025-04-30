@@ -13,6 +13,12 @@ export  const subjects=[{
       id:17,
       topic:'Science & nature'
     }
+  ],
+  keywords:[
+    "science",
+    "mathematics",
+    "Computer",
+    "Science & nature"
   ]
 },
 {
@@ -23,6 +29,9 @@ export  const subjects=[{
       topic:'General knowledge'
     },
 
+  ],
+  keywords:[
+    "general knowledge"
   ]
 },
 {
@@ -40,5 +49,10 @@ export  const subjects=[{
       id:21,
       topic:'Sport'
     }
+  ],
+  keywords:[
+    "sport",
+    "art",
+    "history",
   ]
 }]
