@@ -163,6 +163,7 @@ main{
     display:block;
   }
   .user,.search-bar{
+    padding: 0 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
@@ -175,7 +176,17 @@ main{
     display: none;
   }
   .side-bar{
-    display: none;
+    position: absolute;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 1s ease;
+  }
+  .side-bar.visible{
+    opacity: 1;
+    z-index: 1;
+    transform: translateX(0%);
+    width: 100%;
+    transition: all 1s ease;
   }
   main{
     display: grid;
