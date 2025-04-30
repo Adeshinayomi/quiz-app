@@ -19,22 +19,25 @@ category_btn.addEventListener('click',()=>{
  document.querySelector('.js-categories').classList.toggle('visible')
 })
 
-function loadCategories(){
+function loadCategories(name){
   let html=''
   subjects.forEach((subject)=>{
     const subjectName=subject.subject
-    document.querySelector('.js-category-name').innerHTML=`${subjectName}`
-    const subjectTopics=subject.topics
-    let topic=''
-    subjectTopics.forEach((subjectTopic)=>{
-     topic=subjectTopic.topic
-    });
-    html+=`
-      <div class="subject">
-        <h4><a href="question.html">${topic}</a></h4>
-        <img src="images/icons/play-button.png" alt="">
-      </div>
-    `
+    if(name === subjectName){
+      document.querySelector('.js-category-name').innerHTML=`${subjectName}`
+      const subjectTopics=subject.topics
+      let topic=''
+      subjectTopics.forEach((subjectTopic)=>{
+       topic=subjectTopic.topic
+       html+=`
+       <div class="subject">
+         <h4><a href="question.html">${topic}</a></h4>
+         <img src="images/icons/play-button.png" alt="">
+       </div>
+     `
+      });
+    }
+
   })
  
   document.querySelector('.js-subject-cont').innerHTML=html
@@ -42,7 +45,8 @@ function loadCategories(){
 
 document.querySelectorAll('.topics').forEach((topic)=>{
   topic.addEventListener('click',()=>{
+    const name=topic.innerHTML
     sidebar.classList.remove('visible')
-      loadCategories()
+      loadCategories(name)
   })
 })

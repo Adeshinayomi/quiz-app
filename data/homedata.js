@@ -1,5 +1,5 @@
 export  const subjects=[{
-  subject:'science',
+  subject:'Science',
   topics:[
     {
       id:19,
