@@ -163,6 +163,7 @@ main{
     display:block;
   }
   .user,.search-bar{
+    position: relative;
     padding: 0 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -173,7 +174,18 @@ main{
     height: 3.5vh;
   }
   .user p{
+    position: relative;
     display: none;
+  }
+  .user p.visible{
+    position: absolute;
+    top: 120%;
+    right:-16%;
+    background-color: white;
+    color: black;
+    padding: 5px 40px;
+    display: block;
+    z-index: 2;
   }
   .side-bar{
     position: absolute;
