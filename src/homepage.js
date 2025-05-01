@@ -32,7 +32,7 @@ function loadCategories(name){
        html+=`
        <div class="subject">
          <h4><a href="question.html">${topic}</a></h4>
-         <img src="images/icons/play-button.png" alt="">
+         <img src="images/icons/play-button.png" alt="" data-topic="${topic}" class="js-play-quiz">
        </div>
      `
       });
@@ -63,4 +63,10 @@ function loadSearchItem(){
 document.querySelector('.js-search-icon').addEventListener('click',()=>{
   loadSearchItem()
   searchBar.value=''
+})
+document.querySelectorAll('.js-play-quiz').forEach((play)=>{
+  const name=play.dataset.topic;
+  play.addEventListener('click',()=>{
+    window.location=`quiz-settings.html?topic=${name}`
+  })
 })

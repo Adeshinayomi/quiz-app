@@ -11,7 +11,7 @@ form{
   justify-content: center;
   gap: 1rem;
 }
-form input{
+input,select{
   width: 300px;
   border: none;
   padding:20px 40px;
@@ -20,6 +20,16 @@ form input{
   color: white;
   justify-self: center;
 }
+select{
+  width: 250px;
+  font-size: 16px;
+  padding:10px 15px;
+  border-radius: 10px;
+}
+label{
+  font-size: 20px;
+  color: white;
+}
 input::placeholder{
   font-family: sans-serif;
   font-size: 16px;
@@ -27,6 +37,11 @@ input::placeholder{
 }
 .signup-btn-cont p{
   margin: 10px;
+}
+.start-btn{
+  padding: 10px 40px;
+  font-size: 16px;
+  border-radius: 10px;
 }
 .sign-up-btn{
   padding:20px 100px;
