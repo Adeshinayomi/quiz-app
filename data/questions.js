@@ -1,6 +1,5 @@
 // Function to fetch quiz questions
-function fetchQuizQuestions() {
-  const apiUrl = 'https://opentdb.com/api.php?amount=10&type=multiple';
+export function fetchQuizQuestions(apiUrl) {
 
   fetch(apiUrl)
     .then(response => {
@@ -19,4 +18,4 @@ function fetchQuizQuestions() {
 }
 
 // Call the function to fetch questions
-fetchQuizQuestions();
+// fetchQuizQuestions();
