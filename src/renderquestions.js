@@ -1,7 +1,8 @@
-import { fetchQuizQuestions } from "../data/questions.js";
+import { fetchQuizQuestions,scores,answers } from "../data/questions.js";
 
 async function renderquestions() {
   let index = 0;
+  let score=0
 
   const url = new URL(window.location.href);
   const name = url.searchParams.get('name');
@@ -12,7 +13,7 @@ async function renderquestions() {
 
   const apiUrl = `https://opentdb.com/api.php?amount=${number}&category=${id}&difficulty=${difficulty}`;
   const questions = await fetchQuizQuestions(apiUrl);
-
+   
   document.querySelector('.js-subject-name').innerHTML = name;
 
   const durationInSeconds = Number(time) * 60;
@@ -31,7 +32,9 @@ async function renderquestions() {
       }
     }, 1000);
   }
-
+  for(let i=1; i<=number; i++){
+    document.querySelector('.js-number-cont').innerHTML+=`<button class="question-number js-question-number">${i}</button>`
+  }
   function displayQuestion() {
     const question = questions[index];
     const options = [...question.incorrect_answers, question.correct_answer];
@@ -46,7 +49,7 @@ async function renderquestions() {
           ${options
             .map(
               (option, i) =>
-                `<span class="option">${String.fromCharCode(65 + i)}: ${option}</span>`
+                `<span class="option" data-id='${index + 1}' data-answer="${option}">${String.fromCharCode(65 + i)}: ${option}</span>`
             )
             .join('')}
         </div> 
@@ -54,7 +57,7 @@ async function renderquestions() {
       <div class="question-btn">
         <button class="prev-btn" ${index === 0 ? 'disabled' : ''}>Prev</button>
         <button class="next-btn" ${index === questions.length - 1 ? 'disabled' : ''}>Next</button>
-        <button class="submit-btn"><a href="result.html">Submit</a></button>
+        <button class="submit-btn js-submit-btn"><a>Submit</a></button>
       </div>
     `;
 
@@ -72,6 +75,56 @@ async function renderquestions() {
         displayQuestion();
       }
     });
+    document.querySelectorAll('.js-question-number').forEach((number)=>{
+      number.addEventListener('click',()=>{
+        const numberValue=number.innerHTML
+        index=numberValue-1
+        displayQuestion()
+      })
+    })
+     document.querySelectorAll('.option').forEach((option)=>{
+      option.addEventListener('click',()=>{
+        if(option.classList.contains('answered')){
+          return
+        }
+        document.querySelectorAll('.option').forEach((option)=>{
+          option.classList.remove('answered')
+        })
+        const optionPicked=option.dataset.answer
+        const correct= document.createElement('span');
+        correct.classList.add('.correct')
+        correct.innerHTML=question.correct_answer
+
+        if(optionPicked === correct.innerHTML){
+          if(score<number){
+            score++
+          }
+        }else{
+          if(score>0){
+            score--
+          }
+        }
+        answers.push({
+          your_answer:optionPicked,
+          correct_answer:correct.innerHTML
+        })
+        option.classList.add('answered')
+        const questionNumber=option.dataset.id
+
+        document.querySelectorAll('.js-question-number').forEach((number)=>{
+          if(number.innerHTML === questionNumber){
+            console.log(number.innerHTML)
+            number.classList.add('answered')
+          }
+        })
+      })
+    })
+    
+    document.querySelector('.js-submit-btn').addEventListener('click',()=>{
+      const total=number
+      console.log(`${score}/${total}`)
+    })
+
   }
 
   displayQuestion();

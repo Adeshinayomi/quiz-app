@@ -11,3 +11,14 @@ export async function fetchQuizQuestions(apiUrl) {
     return [];
   }
 }
+
+export let answers=[
+{
+  your_answer:'',
+  correct_answer:''
+}
+]
+export let scores={
+  score:0,
+  total:0
+}
