@@ -10,31 +10,31 @@
 <body>
   <main class="quiz-main-cont signup-cont">
     <h1 class="topic-name">Mathematics</h1>
-    <form action="">
-      <label for="">Number of question</label>
-      <select name="" id="">
-        <option value="">10</option>
-        <option value="">20</option>
-        <option value="">30</option>
-        <option value="">40</option>
-        <option value="">50</option>
+    <form id="setting-form" class="question-form">
+      <label for="question">Number of question</label>
+      <select name="question" class="js-question-number">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
       </select>
-      <label for="">Amount of minute</label>
-      <select name="" id="">
-        <option value="">10</option>
-        <option value="">20</option>
-        <option value="">30</option>
+      <label for="minute">Amount of minute</label>
+      <select name="minute" class="js-question-time">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
       </select>
-      <label for="">Level of difficulty</label>
-      <select name="" id="">
-        <option value="">easy</option>
-        <option value="">medium</option>
-        <option value="">hard</option>
+      <label for="difficulty">Level of difficulty</label>
+      <select name="difficulty" class="js-question-difficulty">
+        <option value="easy">easy</option>
+        <option value="medium">medium</option>
+        <option value="hard">hard</option>
       </select>
     </form>
-    <button class="start-btn quiz-btn ">Start Quiz</button>
+    <button  class="start-btn quiz-btn js-start-btn">Start Quiz</button>
   </main>
   
-  <script src="src/quiz-setting.js"></script>
+  <script type="module" src="src/quiz-setting.js"></script>
 </body>
 </html>
