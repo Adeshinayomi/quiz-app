@@ -56,8 +56,8 @@ async function renderquestions() {
         </div> 
       </div>
       <div class="question-btn">
-        <button class="prev-btn" ${index === 0 ? 'disabled' : ''}>Prev</button>
-        <button class="next-btn" ${index === questions.length - 1 ? 'disabled' : ''}>Next</button>
+        <button class="prev-btn">Prev</button>
+        <button class="next-btn">Next</button>
         <button class="submit-btn js-submit-btn"><a>Submit</a></button>
       </div>
     `;
