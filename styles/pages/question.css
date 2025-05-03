@@ -73,6 +73,14 @@ gap: 1rem;
   background-color: white;
   color: black;
 }
+.option.correct{
+  background-color: green;
+  color: white;
+}
+.option.wrong{
+  background-color: red;
+  color: white;
+} 
 .result-option:hover{
   background-color:rgb(5, 40, 5);
   color: white;

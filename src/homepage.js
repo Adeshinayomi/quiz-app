@@ -41,8 +41,29 @@ function loadCategories(name){
   })
  
   document.querySelector('.js-subject-cont').innerHTML=html
-}
 
+
+  
+  const searchBar=document.querySelector('.js-search-bar')
+  function loadSearchItem(){
+    subjects.forEach((subject)=>{
+      if(subject.keywords.includes(searchBar.value)){
+        const name=subject.subject
+        loadCategories(name)
+      }
+    })
+  }
+  document.querySelector('.js-search-icon').addEventListener('click',()=>{
+    loadSearchItem()
+    searchBar.value=''
+  })
+  document.querySelectorAll('.js-play-quiz').forEach((play)=>{
+    const name=play.dataset.topic;
+    play.addEventListener('click',()=>{
+      window.location=`quiz-settings.html?topic=${name}`
+    })
+  })
+}
 document.querySelectorAll('.topics').forEach((topic)=>{
   topic.addEventListener('click',()=>{
     const name=topic.innerHTML
@@ -50,23 +71,5 @@ document.querySelectorAll('.topics').forEach((topic)=>{
       loadCategories(name)
   })
 })
+loadCategories('For You')
 
-const searchBar=document.querySelector('.js-search-bar')
-function loadSearchItem(){
-  subjects.forEach((subject)=>{
-    if(subject.keywords.includes(searchBar.value)){
-      const name=subject.subject
-      loadCategories(name)
-    }
-  })
-}
-document.querySelector('.js-search-icon').addEventListener('click',()=>{
-  loadSearchItem()
-  searchBar.value=''
-})
-document.querySelectorAll('.js-play-quiz').forEach((play)=>{
-  const name=play.dataset.topic;
-  play.addEventListener('click',()=>{
-    window.location=`quiz-settings.html?topic=${name}`
-  })
-})

@@ -1,4 +1,26 @@
 export  const subjects=[{
+  subject:'For You',
+  topics:[
+    {
+      id:19,
+      topic:'Mathematics'
+    },
+    {
+      id:18,
+      topic:'History'
+    },
+    {
+      id:17,
+      topic:'Science & nature'
+    }
+  ],
+  keywords:[
+    "for you",
+    "mathematics",
+    'History',
+    "Science & nature"
+  ]
+},{
   subject:'Science',
   topics:[
     {

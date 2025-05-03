@@ -1,10 +1,13 @@
 import { fetchQuizQuestions,loadQuestionNumber} from "../data/questions.js";;
-import { scores,answers,results } from "../data/resultdata.js";
+import { scores,results } from "../data/resultdata.js";
 
+localStorage.removeItem('results')
+localStorage.removeItem('scores')
 async function renderquestions() {
   let index = 0;
   let score=0
 
+  const selectedAnswers = {};
   const url = new URL(window.location.href);
   const name = url.searchParams.get('name');
   const id = url.searchParams.get('id');
@@ -50,7 +53,8 @@ async function renderquestions() {
           ${options
             .map(
               (option, i) =>
-                `<span class="option" data-id='${index + 1}' data-answer="${option}">${String.fromCharCode(65 + i)}: ${option}</span>`
+                `<span class="option" data-id='${index + 1}' data-answer="${option}"
+              data-correct-answer="${question.correct_answer}">${String.fromCharCode(65 + i)}: ${option}</span>`
             )
             .join('')}
         </div> 
@@ -61,10 +65,14 @@ async function renderquestions() {
         <button class="submit-btn js-submit-btn"><a>Submit</a></button>
       </div>
     `;
-
-    if(!results.includes(document.querySelector('.js-questions-cont').innerHTML)){
-      results.push(document.querySelector('.js-questions-cont').innerHTML)
+    if (selectedAnswers[index] !== undefined) {
+      document.querySelectorAll('.option').forEach((option) => {
+        if (option.dataset.answer === selectedAnswers[index]) {
+          option.classList.add('answered');
+        }
+      });
     }
+
     document.querySelector('.prev-btn').addEventListener('click', () => {
       if (index > 0) {
         index--;
@@ -87,17 +95,18 @@ async function renderquestions() {
     })
      document.querySelectorAll('.option').forEach((option)=>{
       option.addEventListener('click',()=>{
-        if(option.classList.contains('answered')){
-          return
-        }
+
         document.querySelectorAll('.option').forEach((option)=>{
           option.classList.remove('answered')
         })
+        option.classList.add('answered');
+        selectedAnswers[index] = option.dataset.answer;
+
         const optionPicked=option.dataset.answer
         const correct= document.createElement('span');
         correct.classList.add('.correct')
+
         correct.innerHTML=question.correct_answer
-        console.log(optionPicked===correct.innerHTML)
         if(optionPicked === correct.innerHTML){
           if(score<number){
             score++
@@ -107,16 +116,13 @@ async function renderquestions() {
             score--
           }
         }
-        answers.push({
-          your_answer:optionPicked,
-          correct_answer:correct.innerHTML
-        })
-        option.classList.add('answered')
-        const questionNumber=option.dataset.id
+        if(!results.includes(document.querySelector('.js-questions-cont').innerHTML)){
+          results.push(document.querySelector('.js-questions-cont').innerHTML)
+        }
 
+        const questionNumber=option.dataset.id
         document.querySelectorAll('.js-question-number').forEach((number)=>{
           if(number.innerHTML === questionNumber){
-            console.log(number.innerHTML)
             number.classList.add('answered')
           }
         })
@@ -129,10 +135,8 @@ async function renderquestions() {
         total:number
       })
       localStorage.setItem('scores',JSON.stringify(scores))
-      localStorage.setItem('answers',JSON.stringify(answers)) 
       localStorage.setItem('results',JSON.stringify(results)) 
       window.location.href=`./result.html?name=${name}`
-      console.log(`${score} out of ${number}`)
     })
 
   }
