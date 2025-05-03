@@ -1,4 +1,5 @@
-import { fetchQuizQuestions,scores,answers } from "../data/questions.js";
+import { fetchQuizQuestions,loadQuestionNumber} from "../data/questions.js";;
+import { scores,answers,results } from "../data/resultdata.js";
 
 async function renderquestions() {
   let index = 0;
@@ -32,9 +33,9 @@ async function renderquestions() {
       }
     }, 1000);
   }
-  for(let i=1; i<=number; i++){
-    document.querySelector('.js-number-cont').innerHTML+=`<button class="question-number js-question-number">${i}</button>`
-  }
+  loadQuestionNumber(number, document.querySelector('.js-number-cont'))
+
+
   function displayQuestion() {
     const question = questions[index];
     const options = [...question.incorrect_answers, question.correct_answer];
@@ -61,7 +62,9 @@ async function renderquestions() {
       </div>
     `;
 
-    // Add event listeners for navigation buttons
+    if(!results.includes(document.querySelector('.js-questions-cont').innerHTML)){
+      results.push(document.querySelector('.js-questions-cont').innerHTML)
+    }
     document.querySelector('.prev-btn').addEventListener('click', () => {
       if (index > 0) {
         index--;
@@ -94,7 +97,7 @@ async function renderquestions() {
         const correct= document.createElement('span');
         correct.classList.add('.correct')
         correct.innerHTML=question.correct_answer
-
+        console.log(optionPicked===correct.innerHTML)
         if(optionPicked === correct.innerHTML){
           if(score<number){
             score++
@@ -121,11 +124,19 @@ async function renderquestions() {
     })
     
     document.querySelector('.js-submit-btn').addEventListener('click',()=>{
-      const total=number
-      console.log(`${score}/${total}`)
+      scores.push({
+        score:score,
+        total:number
+      })
+      localStorage.setItem('scores',JSON.stringify(scores))
+      localStorage.setItem('answers',JSON.stringify(answers)) 
+      localStorage.setItem('results',JSON.stringify(results)) 
+      window.location.href=`./result.html?name=${name}`
+      console.log(`${score} out of ${number}`)
     })
 
   }
+  
 
   displayQuestion();
 

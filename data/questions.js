@@ -12,13 +12,8 @@ export async function fetchQuizQuestions(apiUrl) {
   }
 }
 
-export let answers=[
-{
-  your_answer:'',
-  correct_answer:''
-}
-]
-export let scores={
-  score:0,
-  total:0
+export function loadQuestionNumber(number,cont) {
+  for(let i=1; i<=number; i++){
+   cont.innerHTML+=`<button class="question-number js-question-number">${i}</button>`
+  }
 }
