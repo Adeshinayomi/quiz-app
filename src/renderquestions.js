@@ -10,7 +10,7 @@ async function renderquestions() {
   const selectedAnswers = {};
   const url = new URL(window.location.href);
   const name = url.searchParams.get('name');
-  const id = url.searchParams.get('id');
+  const id = url.searchParams.get('id');  
   const number = url.searchParams.get('number');
   const time = url.searchParams.get('time');
   const difficulty = url.searchParams.get('difficulty');
@@ -43,9 +43,9 @@ async function renderquestions() {
     const question = questions[index];
     const options = [...question.incorrect_answers, question.correct_answer];
     shuffleArray(options); // Shuffle the options
-
-    document.querySelector('.js-questions-cont').innerHTML = `
-      <div class="question">
+    const questionCont= document.querySelector('.js-questions-cont')
+    questionCont.innerHTML = `
+      <div class="question" data-id="${index + 1}">
         <h4>Q${index + 1} of ${number}<br>
           ${index + 1}. ${question.question}
         </h4>
@@ -65,6 +65,11 @@ async function renderquestions() {
         <button class="submit-btn js-submit-btn"><a>Submit</a></button>
       </div>
     `;
+
+    console.log(!results.includes(questionCont.innerHTML))
+    if(!results.includes(questionCont.innerHTML)){
+      results.push(questionCont.innerHTML)
+    }
     if (selectedAnswers[index] !== undefined) {
       document.querySelectorAll('.option').forEach((option) => {
         if (option.dataset.answer === selectedAnswers[index]) {
@@ -95,13 +100,15 @@ async function renderquestions() {
     })
      document.querySelectorAll('.option').forEach((option)=>{
       option.addEventListener('click',()=>{
-
         document.querySelectorAll('.option').forEach((option)=>{
           option.classList.remove('answered')
         })
         option.classList.add('answered');
         selectedAnswers[index] = option.dataset.answer;
-
+        results.splice(index,1)
+        console.log(results)
+        results.splice(index,0,document.querySelector('.js-questions-cont').innerHTML)
+        console.log(results)
         const optionPicked=option.dataset.answer
         const correct= document.createElement('span');
         correct.classList.add('.correct')
@@ -115,9 +122,6 @@ async function renderquestions() {
           if(score>0){
             score--
           }
-        }
-        if(!results.includes(document.querySelector('.js-questions-cont').innerHTML)){
-          results.push(document.querySelector('.js-questions-cont').innerHTML)
         }
 
         const questionNumber=option.dataset.id

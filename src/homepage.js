@@ -49,7 +49,7 @@ function loadCategories(name){
     subjects.forEach((subject)=>{
       if(subject.keywords.includes(searchBar.value)){
         const name=subject.subject
-        loadCategories(name)
+        loadCategories(`${name}`)
       }
     })
   }
@@ -68,7 +68,7 @@ document.querySelectorAll('.topics').forEach((topic)=>{
   topic.addEventListener('click',()=>{
     const name=topic.innerHTML
     sidebar.classList.remove('visible')
-      loadCategories(name)
+      loadCategories(`${name}`)
   })
 })
 loadCategories('For You')

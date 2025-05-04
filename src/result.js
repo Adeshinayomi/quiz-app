@@ -22,10 +22,12 @@ function displayResult() {
 
   function loadResults(){
     let question=results[index]
+    console.log(question)
     document.querySelector('.js-questions-cont').innerHTML=question
     document.querySelector('.js-submit-btn').innerHTML=`home`
     
     document.querySelectorAll('.option').forEach((option)=>{
+      console.log(option.classList.contains('answered'))
       if(option.classList.contains('answered')){
         if(option.dataset.answer === option.dataset.correctAnswer){
           option.classList.add('correct')
@@ -57,7 +59,7 @@ function displayResult() {
       }
     });
     document.querySelector('.next-btn').addEventListener('click', () => {
-      if (index < totalQuestions) {
+      if (index < totalQuestions-1) {
         index++;
         loadResults()
       }
