@@ -111,7 +111,7 @@ main{
   position: relative;
   width: 100%;
   height: 50%;
-  background-image: url('images/school-supplies-green-chalkboard-back-school-background.jpg');
+  background-image: url('/images/school-supplies-green-chalkboard-back-school-background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
