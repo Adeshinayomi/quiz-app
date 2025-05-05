@@ -31,7 +31,7 @@ function loadCategories(name){
        topic=subjectTopic.topic
        html+=`
        <div class="subject">
-         <h4><a href="question.html">${topic}</a></h4>
+         <h4>${topic}</h4>
          <img src="images/icons/play-button.png" alt="" data-topic="${topic}" class="js-play-quiz">
        </div>
      `

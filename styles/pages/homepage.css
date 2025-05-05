@@ -18,12 +18,13 @@ header input{
   border: none;
   background-color: transparent;
   padding: 10px;
-  font-weight: 100;
+  font-weight: 400;
   outline: none;
 }
 header input::placeholder{
   color: rgba(255, 255, 255, 0.582);
   font-size: 16px;
+  font-weight:400;
 }
 header img{
   height: 4vh;
@@ -48,6 +49,7 @@ header img{
 .search-bar img{
   align-self:center;
   height: 3.5vh;
+  cursor:pointer;
 }
 
 main{
@@ -111,7 +113,7 @@ main{
   position: relative;
   width: 100%;
   height: 50%;
-  background-image: url('/images/school-supplies-green-chalkboard-back-school-background.jpg');
+  background-image: url('/quiz-app/images/school-supplies-green-chalkboard-back-school-background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -152,6 +154,7 @@ main{
   justify-self: end;
   align-self: start;
   color: white;
+  cursor: pointer;
 }
 .subject h4{
   align-self:center;
