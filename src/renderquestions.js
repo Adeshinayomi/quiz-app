@@ -66,8 +66,8 @@ async function renderquestions() {
       </div>
     `;
 
-    console.log(!results.includes(questionCont.innerHTML))
-    if(!results.includes(questionCont.innerHTML)){
+    console.log(results[index]===question.innerHTML)
+    if(results[index]===question.innerHTML){
       results.push(questionCont.innerHTML)
     }
     if (selectedAnswers[index] !== undefined) {
@@ -117,10 +117,12 @@ async function renderquestions() {
         if(optionPicked === correct.innerHTML){
           if(score<number){
             score++
+            console.log(score)
           }
         }else{
           if(score>0){
-            score--
+            score=score
+            console.log(score)
           }
         }
 
