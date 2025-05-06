@@ -19,6 +19,18 @@ category_btn.addEventListener('click',()=>{
  document.querySelector('.js-categories').classList.toggle('visible')
 })
 
+const setting_btn= document.querySelector('.js-setting-cont')
+setting_btn.addEventListener('click',()=>{
+ document.querySelector('.js-setting').classList.toggle('visible')
+})
+document.querySelector('.js-toggle-cont').addEventListener('click',()=>{
+  document.querySelector('.js-setting').classList.remove('visible')
+  document.querySelector('.js-toggle-cont').classList.toggle('toggled')
+  document.body.classList.toggle('dark')
+  document.querySelector('.js-header').classList.toggle('dark')
+  document.querySelector('.js-side-bar').classList.toggle('dark')
+
+ })
 function loadCategories(name){
   let html=''
   subjects.forEach((subject)=>{

@@ -7,6 +7,12 @@ header{
   border-bottom: 1px solid rgba(255, 255, 255, 0.426);
   background-color: green;
 }
+.dark{
+  background-color: rgb(12, 47, 12);
+}
+header.dark{
+  background-color: rgb(12, 47, 12);
+}
 header label{
  color: white;
  font-size:20px ;
@@ -60,15 +66,19 @@ main{
   column-gap: .5rem;
 }
 .side-bar{
+  width: 100%;
   height: 100vh;
   padding:10px;
   display: flex;
   flex-direction:column;
   gap: 2rem;
   border-right: 1px solid rgba(255, 255, 255, 0.426);
-  background-color: green;
+}
+.side-bar.dark{
+  background-color: rgb(12, 47, 12);
 }
 .side-bar li{
+  width: 100%;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -108,7 +118,41 @@ main{
   font-size: 16px;
   font-weight: 100;
 }
-
+.setting-cont{
+  width: 100%;
+}
+.setting{
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  display: none;
+}
+.setting-cont .visible{
+  display: flex;
+  align-items: center;
+  gap:.5rem;
+}
+.toggle-cont{
+  border: 2px solid;
+  width: 40%;
+  border-radius:25px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.toggled{
+  justify-content: start;
+  border: 2px solid black;
+}
+.toggle-btn{
+  color: white;
+  border: none;
+  padding: 9px;
+  border-radius: 20px;
+}
+.toggled .toggle-btn{
+  background-color: black;
+}
 .hero-section{
   position: relative;
   width: 100%;
