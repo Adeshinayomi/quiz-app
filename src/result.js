@@ -22,9 +22,27 @@ function displayResult() {
 
   function loadResults(){
     let question=results[index]
-    console.log(question)
     document.querySelector('.js-questions-cont').innerHTML=question
     document.querySelector('.js-submit-btn').innerHTML=`home`
+
+    document.querySelectorAll('.option').forEach((option)=>{   
+      if(option.classList.contains('answered')===false){
+        document.querySelectorAll('.option').forEach((option)=>{
+          if(option.dataset.answer === option.dataset.correctAnswer){
+            option.classList.add('correct')
+            let correct_answer=option.dataset.correctAnswer
+            let your_answer=''
+            
+            document.querySelector('.js-answers').innerHTML=`
+              <p>Your Answer:${your_answer}</p>
+              <p>correct Answer:${correct_answer}</p>
+            ` 
+
+          }
+        })
+      }
+    })
+
     
     document.querySelectorAll('.option').forEach((option)=>{
       console.log(option.classList.contains('answered'))
@@ -33,6 +51,11 @@ function displayResult() {
           option.classList.add('correct')
         }else{
           option.classList.add('wrong')
+          document.querySelectorAll('.option').forEach((option)=>{
+            if(option.dataset.answer === option.dataset.correctAnswer){
+              option.classList.add('correct')
+            }
+          })
         }
         let correct_answer=option.dataset.correctAnswer
         let your_answer=option.dataset.answer
@@ -43,6 +66,7 @@ function displayResult() {
         ` 
       }
     })
+  
 
   
     document.querySelectorAll('.js-question-number').forEach((number)=>{

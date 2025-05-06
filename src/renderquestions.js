@@ -38,6 +38,32 @@ async function renderquestions() {
   }
   loadQuestionNumber(number, document.querySelector('.js-number-cont'))
 
+  for(let i=0;i<questions.length;i++){
+    const question=questions[i]
+    const options = [...question.incorrect_answers, question.correct_answer];
+    shuffleArray(options)
+    results.push( `
+    <div class="question" data-id="${index + 1}">
+      <h4>Q${i+ 1} of ${number}<br>
+        ${i + 1}. ${question.question}
+      </h4>
+      <div class="option-cont">
+        ${options
+          .map(
+            (option, i) =>
+              `<span class="option" data-id='${i + 1}' data-answer="${option}"
+            data-correct-answer="${question.correct_answer}">${String.fromCharCode(65 + i)}: ${option}</span>`
+          )
+          .join('')}
+      </div> 
+    </div>
+    <div class="question-btn">
+      <button class="prev-btn">Prev</button>
+      <button class="next-btn">Next</button>
+      <button class="submit-btn js-submit-btn"><a>Submit</a></button>
+    </div>
+  `);
+  }
 
   function displayQuestion() {
     const question = questions[index];
@@ -66,11 +92,7 @@ async function renderquestions() {
       </div>
     `;
     
-    console.log(results[index]===question.innerHTML)
-    if(results[index]===question.innerHTML){
-      results.push(questionCont.innerHTML)
-    }
-    if (selectedAnswers[index] !== undefined) {
+    if(selectedAnswers[index] !== undefined) {
       document.querySelectorAll('.option').forEach((option) => {
         if (option.dataset.answer === selectedAnswers[index]) {
           option.classList.add('answered');
@@ -130,6 +152,11 @@ async function renderquestions() {
             number.classList.add('answered')
           }
         })
+
+        if(index < questions.length - 1) {
+          index++;
+          displayQuestion()
+        }
       })
     })
     
