@@ -5,9 +5,12 @@ header{
   display: grid;
   justify-content: center;
 }
-header h4{
+header h1{
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
+
 header span{
   width: 100%;
   display: flex;
