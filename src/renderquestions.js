@@ -65,7 +65,7 @@ async function renderquestions() {
         <button class="submit-btn js-submit-btn"><a>Submit</a></button>
       </div>
     `;
-
+    
     console.log(results[index]===question.innerHTML)
     if(results[index]===question.innerHTML){
       results.push(questionCont.innerHTML)
@@ -106,9 +106,7 @@ async function renderquestions() {
         option.classList.add('answered');
         selectedAnswers[index] = option.dataset.answer;
         results.splice(index,1)
-        console.log(results)
         results.splice(index,0,document.querySelector('.js-questions-cont').innerHTML)
-        console.log(results)
         const optionPicked=option.dataset.answer
         const correct= document.createElement('span');
         correct.classList.add('.correct')

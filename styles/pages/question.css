@@ -130,3 +130,16 @@ gap: 1rem;
     width: 80%;
   }
 }
+@media (min-width:500px) and (max-width:800px) {
+  header h1{
+    font-size: 28px;
+  }
+  .number-cont{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+  }
+  .option{
+    width: 60%;
+  }
+  
+}

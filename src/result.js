@@ -41,6 +41,14 @@ function displayResult() {
           <p>Your Answer:${your_answer}</p>
           <p>correct Answer:${correct_answer}</p>
         ` 
+      }else{
+        let correct_answer=option.dataset.correctAnswer
+        let your_answer=""
+        
+        document.querySelector('.js-answers').innerHTML=`
+          <p>Your Answer:${your_answer}</p>
+          <p>correct Answer:${correct_answer}</p>
+        `
       }
     })
 

@@ -3,7 +3,7 @@ header{
   margin:auto;
   padding: 20px 10px;
   display: grid;
-  grid-template-columns: .3fr 1fr 1fr;
+  grid-template-columns: .5fr 1fr 1fr;
   border-bottom: 1px solid rgba(255, 255, 255, 0.426);
   background-color: green;
 }
@@ -113,7 +113,7 @@ main{
   position: relative;
   width: 100%;
   height: 50%;
-  background-image: url('/quiz-app/images/school-supplies-green-chalkboard-back-school-background.jpg');
+  background-image: url("../../images/school-supplies-green-chalkboard-back-school-background.jpg ");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -239,5 +239,29 @@ main{
   .subject-cont{
     display: grid;
     grid-template-columns: 1fr;
+  }
+}
+@media (min-width:500px) and (max-width:800px){
+  header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-section p{
+    width:70%;
+    justify-content:end;
+    left: 25%;
+  }
+  .subject-cont{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .subject img{
+    width: 40%;
+    height: 5vh;
+  }
+  main{
+    grid-template-columns: .4fr 1fr;
   }
 }

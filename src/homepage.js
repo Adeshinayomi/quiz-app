@@ -63,13 +63,14 @@ function loadCategories(name){
       window.location=`quiz-settings.html?topic=${name}`
     })
   })
-}
-document.querySelectorAll('.topics').forEach((topic)=>{
-  topic.addEventListener('click',()=>{
-    const name=topic.innerHTML
-    sidebar.classList.remove('visible')
-      loadCategories(`${name}`)
+  document.querySelectorAll('.topics').forEach((topic)=>{
+    topic.addEventListener('click',()=>{
+      const name=topic.innerHTML
+      sidebar.classList.remove('visible')
+        loadCategories(`${name}`)
+    })
   })
-})
+}
+
 loadCategories('For You')
 
