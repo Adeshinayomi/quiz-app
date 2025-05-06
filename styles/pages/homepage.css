@@ -147,12 +147,13 @@ main{
   border-radius: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 .subject img{
   width: 30%;
   height: 5vh;
   justify-self: end;
-  align-self: start;
+  align-self: center;
   color: white;
   cursor: pointer;
 }
