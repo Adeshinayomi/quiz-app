@@ -73,6 +73,7 @@ main{
   flex-direction:column;
   gap: 2rem;
   border-right: 1px solid rgba(255, 255, 255, 0.426);
+  background-color:green;
 }
 .side-bar.dark{
   background-color: rgb(12, 47, 12);
@@ -284,6 +285,9 @@ main{
   .subject-cont{
     display: grid;
     grid-template-columns: 1fr;
+  }
+  .toggle-cont{
+    width: 20%;
   }
 }
 @media (min-width:500px) and (max-width:800px){
