@@ -44,26 +44,44 @@ function loadCategories(name){
      `
       });
     }
-
+    document.querySelector('.js-subject-cont').innerHTML=html
+    document.querySelector('.js-subject-cont').classList.remove('error-cont')
   })
  
-  document.querySelector('.js-subject-cont').innerHTML=html
-
-
   
-  const searchBar=document.querySelector('.js-search-bar')
+  const searchBar=document.querySelector('.js-search-bar');
+
+  searchBar.addEventListener('keyup',(e)=>{
+    loadSearchItem()
+
+    if(e.key === 'Enter'){
+      loadSearchItem()
+    }
+  })
+
   function loadSearchItem(){
     subjects.forEach((subject)=>{
-      if(subject.keywords.includes(searchBar.value)){
+      const searchCompatible=searchBar.value.toLowerCase()
+      if(subject.keywords.includes(searchCompatible)){
         const name=subject.subject
         loadCategories(`${name}`)
+        document.querySelector('.js-subject-cont').classList.remove('error-cont')
+      }else if(searchBar.value === ''){
+        loadCategories('For You')
+        document.querySelector('.js-subject-cont').classList.remove('error-cont')
+      }else{
+        document.querySelector('.js-subject-cont').innerHTML='<p class="search-error">"No Result For Your Search"</p>'
+        document.querySelector('.js-subject-cont').classList.add('error-cont')
       }
     })
   }
   document.querySelector('.js-search-icon').addEventListener('click',()=>{
     loadSearchItem()
-    searchBar.value=''
+    setTimeout(()=>{
+       searchBar.value=''
+    },1000)
   })
+     
   document.querySelectorAll('.js-play-quiz').forEach((play)=>{
     const name=play.dataset.topic;
     play.addEventListener('click',()=>{

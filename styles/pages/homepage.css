@@ -181,6 +181,7 @@ main{
   display:grid;
 }
 .subject-cont{
+  width: 100%;
   padding: 10px;
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -217,6 +218,17 @@ main{
 }
 .side-bar-footer span{
   color: white;
+}
+.error-cont{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.search-error{
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
 }
 @media (min-width:300px) and (max-width:600px) {
   header{
