@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/pages/profile.css">
+  <link rel="stylesheet" href="styles/shared/general.css">
+  <title>Profile - Quiz-App</title> 
+</head>
+<body>
+  <header>
+    <div class="header-icon js-back-button">
+      <img src="images/icons/left-arrow.png" alt="">
+    </div>
+  </header>
+  <main>
+    <div class="profile-header">  
+      <img src="images/icons/profile-user.png" alt="">
+      <p class="user-name js-user-name"></p>
+    </div>
+    <section>
+      <div class="quiz-list-header">
+        <h4>Recent Quizzes</h4>
+        <span class="js-clear-btn">clear all</span>
+      </div>
+      <div class="quiz-list js-quiz-list">
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="src/profile.js"></script>
+</body>
+</html>

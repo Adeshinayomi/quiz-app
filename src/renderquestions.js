@@ -1,5 +1,6 @@
 import { fetchQuizQuestions,loadQuestionNumber} from "../data/questions.js";;
 import { scores,results } from "../data/resultdata.js";
+import { recentQuiz } from "../data/profiledata.js";
 
 localStorage.removeItem('results')
 localStorage.removeItem('scores')
@@ -161,12 +162,19 @@ async function renderquestions() {
     })
     
     document.querySelector('.js-submit-btn').addEventListener('click',()=>{
+
       scores.push({
         score:score,
         total:number
       })
       localStorage.setItem('scores',JSON.stringify(scores))
       localStorage.setItem('results',JSON.stringify(results)) 
+      recentQuiz.push({
+        name:name,
+        score:score,
+        total:number,
+      })
+      localStorage.setItem('recentQuiz',JSON.stringify(recentQuiz))
       window.location.href=`./result.html?name=${name}`
     })
 
