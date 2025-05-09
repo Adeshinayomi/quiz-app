@@ -2,6 +2,7 @@ import { fetchQuizQuestions,loadQuestionNumber} from "../data/questions.js";;
 import { scores,results } from "../data/resultdata.js";
 import { recentQuiz } from "../data/profiledata.js";
 
+let username=localStorage.getItem('username')
 localStorage.removeItem('results')
 localStorage.removeItem('scores')
 async function renderquestions() {
@@ -170,6 +171,7 @@ async function renderquestions() {
       localStorage.setItem('scores',JSON.stringify(scores))
       localStorage.setItem('results',JSON.stringify(results)) 
       recentQuiz.push({
+        username:username,
         name:name,
         score:score,
         total:number,

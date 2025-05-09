@@ -3,6 +3,7 @@ import { user} from "../data/database.js";
 const email=document.querySelector('.user-email')
 const password=document.querySelector('.user-password')
 const loginBtn=document.querySelector('.js-login-btn');
+const passwordIcon=document.querySelector('.js-password-icon')
 
 document.querySelector('.login').addEventListener('submit',(e)=>{
   e.preventDefault()
@@ -25,7 +26,6 @@ document.querySelector('.login').addEventListener('submit',(e)=>{
       localStorage.setItem('username',user.name)
       document.querySelector('.email-error').innerHTML=``
       document.querySelector('.password-error').innerHTML=` `
-
       setTimeout(()=>{
         loginBtn.innerHTML='<a>login successful!</a>'
       },500)   
@@ -34,4 +34,15 @@ document.querySelector('.login').addEventListener('submit',(e)=>{
       },2000)
     }
   })
+})
+
+passwordIcon.addEventListener('click',()=>{
+    const id=passwordIcon.dataset.password
+    if(document.querySelector(`.${id}`).type==='password'){
+      document.querySelector(`.${id}`).type='text'
+      passwordIcon.src='images/icons/hide.png'
+    }else{
+      document.querySelector(`.${id}`).type='password'
+      passwordIcon.src='images/icons/view.png' 
+    }
 })

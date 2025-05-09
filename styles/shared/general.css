@@ -1,10 +1,10 @@
 *{
   margin: 0;
   padding:0;
-  box-sizing: border-box;
+  box-sizing:border-box;
   list-style: none;
   text-decoration: none;
-  font-family: sans-serif;
+  font-family:sans-serif;
 }
 body{
   background-color: rgb(7, 101, 7);
@@ -47,4 +47,15 @@ p,a{
 .header-icon img{
   width: 100%;
   cursor:pointer;
+}
+form .password-cont{
+  position: relative;
+  display: grid;
+  justify-content: center;
+}
+.password-cont img{
+  position: absolute;
+  top:25%;
+  right:7%;
+  height: 30px;
 }

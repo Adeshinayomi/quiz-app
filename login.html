@@ -13,8 +13,13 @@
     <form class="login">
       <input type="email" placeholder="Email Address" class="user-email">
       <label class="error-message email-error"></label>
-      <input type="password" placeholder="Password" class="user-password">
-      <label class="error-message password-error"></label>
+
+      <div class="password-cont">
+        <input type="password" placeholder="Password" class="user-password">
+        <img src="images/icons/view.png" alt="" class="js-password-icon" data-password="user-password">
+        <label class="error-message password-error"></label>
+      </div> 
+
       <button type="submit" class="login-btn quiz-btn js-login-btn"><a>Login</a></button>
     </form>
 

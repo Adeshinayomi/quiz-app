@@ -17,12 +17,17 @@
       <input type="email" placeholder="Email Address" class="user-email input" data-name="email" >
       <label class="error-message email-error js-error-message"></label>
 
-      <input type="password" placeholder="Password" class="user-password input" data-name="password" >
-      <label class="error-message password-error js-error-message"></label>
+      <div class="password-cont">
+        <input type="password" placeholder="Password" class="user-password input" data-name="password" >
+        <img src="images/icons/view.png" alt="" class="js-password-icon" data-password="user-password">
+        <label class="error-message password-error js-error-message"></label>
+      </div>
 
-      <input type="password" placeholder="Confirm Password" class="user-confirm-paasword input" data-name="confirm-password" >
-
-      <label for="password" class="error-message confirm-password-error js-error-message js-password-error"></label>
+      <div class="password-cont">
+       <input type="password" placeholder="Confirm Password" class="user-confirm-password input" data-name="confirm-password" >
+       <img src="images/icons/view.png" alt="" class="js-password-icon" data-password="user-confirm-password">
+       <label for="password" class="error-message confirm-password-error js-error-message js-password-error"></label>
+      </div>
 
       <div class="error-message js-user-error">
 

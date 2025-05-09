@@ -1,4 +1,5 @@
 import { recentQuiz } from "../data/profiledata.js"
+
 let username=localStorage.getItem('username')
 document.querySelector('.js-user-name').innerHTML=username
 
@@ -8,15 +9,17 @@ document.querySelector(".js-back-button").addEventListener("click",()=>{
 
 let html=''
 recentQuiz.forEach((quiz)=>{
-  const quizName=quiz.name
-  const quizScore=quiz.score
-  const quizTotal=quiz.total
-  html+=`
-  <div class="quiz-card js-quiz-card">
-    <p class="quiz-name">${quizName}</p>
-    <span class="quiz-score">${quizScore}/${quizTotal}</span>
-  </div>
-  `
+  if(quiz.username === username){
+    const quizName=quiz.name
+    const quizScore=quiz.score
+    const quizTotal=quiz.total
+    html+=`
+    <div class="quiz-card js-quiz-card">
+      <p class="quiz-name">${quizName}</p>
+      <span class="quiz-score">${quizScore}/${quizTotal}</span>
+    </div>
+    `
+  }
 });
 document.querySelector('.js-clear-btn').addEventListener('click',()=>{
   localStorage.removeItem('recentQuiz');

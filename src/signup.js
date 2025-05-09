@@ -3,7 +3,7 @@ import { addUserData,user} from "../data/database.js";
 const name=document.querySelector('.user-name')
 const email=document.querySelector('.user-email')
 const password=document.querySelector('.user-password')
-const confirmPassword=document.querySelector('.user-confirm-paasword')
+const confirmPassword=document.querySelector('.user-confirm-password')
 
 document.querySelector('.sign-up').addEventListener('submit',(e)=>{
   e.preventDefault();
@@ -55,6 +55,19 @@ document.querySelector('.sign-up').addEventListener('submit',(e)=>{
   }
 })
 
+document.querySelectorAll('.js-password-icon').forEach((passwordIcon)=>{
+  passwordIcon.addEventListener('click',()=>{
+    const id=passwordIcon.dataset.password
+    if(document.querySelector(`.${id}`).type==='password'){
+      document.querySelector(`.${id}`).type='text'
+      passwordIcon.src='images/icons/hide.png'
+    }else{
+      document.querySelector(`.${id}`).type='password'
+      passwordIcon.src='images/icons/view.png' 
+    }
+
+  })
+})
 
 // const email=document.querySelector('.user-email')
 // const password=document.querySelector('.user-password')
