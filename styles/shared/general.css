@@ -46,4 +46,5 @@ p,a{
 }
 .header-icon img{
   width: 100%;
+  cursor:pointer;
 }

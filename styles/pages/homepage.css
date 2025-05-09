@@ -257,6 +257,9 @@ main{
     align-self:center;
     height: 3.5vh;
   }
+  .user-name{
+    display: none;
+  }
   .side-bar{
     position: absolute;
     opacity: 0;

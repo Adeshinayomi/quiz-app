@@ -1,13 +1,13 @@
 import { subjects } from "../data/homedata.js";
 
-
+  let username=localStorage.getItem('username')
+  document.querySelector('.js-user-name').innerHTML=username
+  
   const sidebar=document.querySelector('.js-side-bar');
 
   document.querySelector('.js-bar-icon').addEventListener('click',()=>{
    sidebar.classList.toggle('visible')
   })
-
-
 
  const category_btn= document.querySelector('.js-categories-cont')
 category_btn.addEventListener('click',()=>{
@@ -53,7 +53,6 @@ function loadCategories(name){
 
   searchBar.addEventListener('keyup',(e)=>{
     loadSearchItem()
-
     if(e.key === 'Enter'){
       loadSearchItem()
     }

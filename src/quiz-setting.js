@@ -1,5 +1,9 @@
 import { subjects } from "../data/homedata.js"
 
+document.querySelector(".js-back-button").addEventListener("click",()=>{
+  window.history.back()
+})
+
 function loadTopicName(){
   const url=new URL(window.location.href)
   const name=url.searchParams.get('topic')
@@ -23,9 +27,9 @@ function loadTopicName(){
 
  })
 
- document.querySelector('.js-start-btn').addEventListener('click', ()=>{
-    window.location=`question.html?name=${name}&id=${id}&number=${number.value}&time=${time.value}&difficulty=${difficulty.value}`
- })
+  document.querySelector('.js-start-btn').addEventListener('click', ()=>{
+      window.location=`question.html?name=${name}&id=${id}&number=${number.value}&time=${time.value}&difficulty=${difficulty.value}`
+  })
  }
 
  window.addEventListener('load',()=>{
