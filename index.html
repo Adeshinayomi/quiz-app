@@ -3,65 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="styles/shared/general.css">
-   <link rel="stylesheet" href="styles/pages/homepage.css">
-  <title>quiz App - Home</title>
+  <link rel="stylesheet" href="styles/shared/general.css">
+  <link rel="stylesheet" href="styles/pages/signup.css">
+  <title>Quiz App - Sign Up</title>
 </head>
 <body>
-  <header class="js-header">
-    <label>Take a Quiz</label>
-    <img class="bar-icon js-bar-icon" src="images/icons/menu-bar.png" alt="">
-    <div class="search-bar">
-      <input type="text" placeholder="Search..." class="js-search-bar">
-      <img src="images/icons/magnifying-glass.png" alt="" class="js-search-icon">
+  <main class="quiz-main-cont signup-cont">
+    <h1>Sign Up</h1>
+    <form class="sign-up">
+      <input class="input user-name" type="text" placeholder="Username" data-name="name" >
+      <label class="error-message name-error js-error-message"></label>
+
+      <input type="email" placeholder="Email Address" class="user-email input" data-name="email" >
+      <label class="error-message email-error js-error-message"></label>
+
+      <div class="password-cont">
+        <input type="password" placeholder="Password" class="user-password input" data-name="password" >
+        <img src="images/icons/view.png" alt="" class="js-password-icon" data-password="user-password">
+        <label class="error-message password-error js-error-message"></label>
+      </div>
+
+      <div class="password-cont">
+       <input type="password" placeholder="Confirm Password" class="user-confirm-password input" data-name="confirm-password" >
+       <img src="images/icons/view.png" alt="" class="js-password-icon" data-password="user-confirm-password">
+       <label for="password" class="error-message confirm-password-error js-error-message js-password-error"></label>
+      </div>
+
+      <div class="error-message js-user-error">
+
+      </div>
+      <button type="submit" class="sign-up-btn quiz-btn js-login-btn"><a>Sign Up</a></button>
+    </form>
+
+    <div class="signup-btn-cont">
+      <p>Already have an account?</p>
+      <button class="login-btn quiz-btn"><a href="login.html">Login</a></button>
     </div>
-    <div class="user js-user">
-      <p class="user-name js-user-name"></p>
-      <a href="profile.html">
-        <img src="images/icons/user.png" alt="">
-      </a>  
-
-    </div>
-  </header>  
-
-  <main>
-    <section class="side-bar js-side-bar">
-      <li class="active"> <img src="images/icons/home.png" alt="">Home</li>
-      <li class="categories-cont js-categories-cont">
-        <h4> <img src="images/icons/category.png" alt=""> Categories</h4>
-        <div class="categories js-categories">
-          <a class="topics">Science</a>
-          <a class="topics">Art</a>
-          <a class="topics">General Knowledge</a>
-        </div>
-      </li>
-      <li class="setting-cont js-setting-cont">
-        <h4><img src="images/icons/setting.png" alt="">Settings</h4>
-        <div class="setting js-setting">
-          <p>Theme</p>
-          <span class="toggle-cont js-toggle-cont"><button class="toggle-btn js-toggle-btn"></button></span>
-        </div>
-      </li>
-      <li><img src="images/icons/logout.png" alt=""><a href="login.html">Log out</a></li>
-      <div class="side-bar-footer">
-        <p>&copy; 2025 Take a Quiz.Created by Adeshina</p>
-      </div>
-    </section>
-    <section class="main-sec">
-      <div class="hero-section">
-        <p class="text-cont">
-          <span>Take a Quiz</span>
-          <span>Play.Learn.Win</span>
-        </p>
-      </div>
-
-      <div class="subject-display">
-        <h1 class="js-category-name">For you</h1>
-        <div class="subject-cont js-subject-cont">
-        </div>
-      </div>
-    </section>  
   </main>
-  <script type="module" src="src/homepage.js"></script>
-</body>  
+
+  <script type="module" src="src/signup.js"></script>
+</body>
 </html>

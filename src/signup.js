@@ -50,7 +50,7 @@ document.querySelector('.sign-up').addEventListener('submit',(e)=>{
       addUserData(email.value,password.value,name.value)
     },1000)
     setTimeout(()=>{
-      window.location='index.html'
+      window.location='Homepage.html'
     },2500)
   }
 })
