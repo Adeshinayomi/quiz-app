@@ -28,7 +28,7 @@ document.querySelector('.login').addEventListener('submit',(e)=>{
         loginBtn.innerHTML='<a>login successful!</a>'
       },500)   
       setTimeout(()=>{
-        window.location='Homepage.html'
+        window.location='index.html'
       },2000)
     }
   })

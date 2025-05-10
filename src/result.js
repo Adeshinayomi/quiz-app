@@ -92,7 +92,7 @@ function displayResult() {
     document.querySelector('.js-submit-btn').addEventListener('click',()=>{
       localStorage.removeItem('scores') 
       localStorage.removeItem('results')
-      window.location.href=`./Homepage.html`
+      window.location.href=`./index.html`
     })
     
   }
