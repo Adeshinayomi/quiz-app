@@ -131,8 +131,10 @@ li img{
   font-size: 16px;
   font-weight: 100;
 }
-.setting-cont{
+.side-bar .setting-cont{
   width: 100%;
+  display: grid;
+
 }
 .setting{
   width: 100%;
