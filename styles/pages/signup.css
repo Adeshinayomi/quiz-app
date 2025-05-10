@@ -39,6 +39,8 @@ input::placeholder{
   margin: 10px;
 }
 .start-btn{
+  position: relative;
+  bottom: 25%;
   padding: 10px 40px;
   font-size: 16px;
   border-radius: 10px;

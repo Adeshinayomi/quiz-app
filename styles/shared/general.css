@@ -26,6 +26,7 @@ p,a{
   grid-template-columns: 1fr;
   justify-items: center;
   align-items: center;
+
 }
 .quiz-btn{
   border: none;
@@ -39,6 +40,7 @@ p,a{
 .header-icon{
   width: 30px;
   height: 50px;
+  margin: 10px;
   border-radius: 50%;
   display: flex;
   justify-content: center;

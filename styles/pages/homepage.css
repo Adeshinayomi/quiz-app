@@ -75,6 +75,7 @@ main{
   gap: 2rem;
   border-right: 1px solid rgba(255, 255, 255, 0.426);
   background-color:green;
+  
 }
 .side-bar.dark{
   background-color: rgb(12, 47, 12);
@@ -84,11 +85,13 @@ main{
   color: white;
   font-weight: bold;
   cursor: pointer;
+  display: flex;
+  align-items: center;
   margin: 0;
 }
-.side-bar img{
+li img{
   width: 20px;
-  height: 20px;
+  height: 100%;
   margin-right: 10px;
 }
 /* .side-bar li.active{
@@ -105,6 +108,7 @@ main{
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+
 }
 .categories-cont .categories{
   display: grid;
@@ -118,7 +122,9 @@ main{
   gap: 1rem;
 }
 .categories-cont h4{
+  display: flex;
   font-weight: bold;
+  align-items: center;
 }
 .categories-cont a{
   margin: 0 10px;
@@ -133,6 +139,10 @@ main{
   padding: 10px;
   display: flex;
   display: none;
+}
+.setting-cont h4{
+  display: flex;
+  align-items: center;
 }
 .setting-cont .visible{
   display: flex;

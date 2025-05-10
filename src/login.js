@@ -9,10 +9,8 @@ document.querySelector('.login').addEventListener('submit',(e)=>{
   e.preventDefault()
   user.forEach((user)=>{
     if(email.value === '' && password.value === ''){
-
       document.querySelector('.email-error').innerHTML=`This field is required`
       document.querySelector('.password-error').innerHTML=`This field is required `
-
     }else if(email.value !== user.email && password.value === user.password){
      document.querySelector('.email-error').innerHTML=`Invalid Email`
      document.querySelector('.password-error').innerHTML=``
